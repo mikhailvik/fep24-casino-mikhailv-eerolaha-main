@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
 
-
 * {
 	box-sizing: border-box;
 }
@@ -10,10 +9,9 @@
 body{
 	margin: 0;
 	padding:0;
-	background-color: #c1a592;
+	background-color: rgb(255, 255, 255); 
 	font-family: "Orelega One";
 }
-
 
 
 .bg-light {
@@ -23,7 +21,7 @@ body{
 	
 }
 
-
+/* logo */
 .navbar-logo {
 	left: 60px;
     width: 100px;
@@ -33,31 +31,339 @@ body{
 	padding: 5px;
 }
 
+/* 5a menu */
 
+.audio-controls{
+ padding-top: 14px;
+ color: #0d6efd;
+}
 
+.sound-switcher:hover{
+	cursor:pointer;
+}
+
+@media(max-width: 600px){
+    .audio-controls{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 15px;
+	}
+
+	.navbar-light .navbar-toggler {
+		margin-left: 80px;
+	}
+	   
+}
+
+.logo-box {
+	float: left;
+	margin-left: 25px;
+  }
+  .logo {
+	margin: 0;
+	height: 70px;
+	text-align: center;
+  }
+  ul {
+	margin: 0;
+	margin-right: 25px;
+	padding-left: 0;
+	list-style: none;
+	float: right;
+	height: 70px;
+	line-height: 70px;
+	text-align:center;
+  }
+  a {
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+  }
+  li a {
+	color: #291a14;
+	text-transform: uppercase;
+  }
+  li {
+	display: inline-block;
+	margin-left: 25px;
+	transition: .5s linear;
+  }
+  li a:after {
+	content: "";
+	width: 0;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	bottom: 25px;
+	background: #291a14;
+	transition: all 0.5s linear;  
+  }
+  li a:hover:after{
+	width: 100%;
+  }
+  @media screen and (max-width:820px) {
+  nav {
+	overflow: visible
+  }
+  ul {
+	height: auto;
+	margin: 10px 25px 0 25px;
+	line-height: 30px;
+	float: none;
+  }
+  li {
+	display: block;
+	margin: 0;
+  }
+  li:hover {
+	background: rgba(0,0,0,.1)
+  }
+  li a:after {
+	content: none;
+  }
+}
+  
+  @media screen and (max-width:493px) {
+  nav {
+	overflow: visible
+  }
+  ul {
+	height: auto;
+	margin: 10px 25px 0 25px;
+	line-height: 30px;
+  }
+  }
+  
+  .navbar-nav .nav-link {
+	color: #291a14 !important; 
+  }
+
+  .navbar-light .navbar-toggler {
+	color: #291a14 !important;
+	border-color: #291a14 !important;
+  }
+
+/* end menu */
+
+/* section */  
 #main-section {
 	padding-top: 20px;
 	padding-bottom: 20px; 
     text-align: center;	
 }
 
-
-#main-section-html {
+/* main section with image */
+.main-section-html {
 	background-image: url("../images/255.jpg");
 	background-size: cover;
 	box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
 	text-align: center;
 	padding-top:100px;
-	padding-bottom:250px;
+	padding-bottom:100px;
 	color: white;
 	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+	min-height: 60vh;
 }
 
+/* main section for color */
+#main-section-color {
+	text-align: center;
+	padding-top:100px;
+	padding-bottom:100px;
+	min-height: 60vh;
+}
 
+/* 1a + 2a */
 #answer {
-	padding-top: 100px; 
+	padding-top: 50px;
+	font-size: 30px; 
 }
 
+#clock {
+    font-size: 26px;
+    margin-bottom: 20px;
+	margin-top: 40px; 
+}
+
+#casino-status {
+    font-size: 26px;
+}
+
+#countdown-clock {
+    font-size: 24px;
+    color: #0d6efd;
+	margin-top: 20px; 
+}
+
+@media(max-width: 450px){
+    #clock {
+		font-size: 20px;
+	}
+	
+}
+
+
+/*3a  */
+.slider {
+	width: 200px;
+	margin-top: 30px;
+	margin-left: 2px
+}
+
+#main-section-color button {
+background-color: lightgrey; /* Light grey background */
+color: black /* Black text */
+}
+
+/*4a gallery.html */
+
+#page-gallery {
+	padding-top: 20px;
+	padding-bottom: 20px; 
+    text-align: center;	
+    display: grid;
+    place-content: center;
+    background: white;
+    color: #291a14;
+}
+
+.gallery {
+	padding-top: 20px;
+	padding-bottom: 20px; 
+    --s: 150px; /* control the size */
+    --g: 10px;  /* control the gap */
+    --f: 1.5;   /* control the scale factor */
+  
+    display: grid;
+    gap: var(--g);
+    width: calc(3*var(--s) + 2*var(--g));
+    aspect-ratio: 1;
+    grid-template-columns: repeat(3,auto);
+}
+
+.gallery > img {
+    width: 0;
+    height: 0;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .35s linear;
+}
+
+.gallery img:hover {
+    filter: grayscale(0);
+    width: calc(var(--s)*var(--f));
+    height: calc(var(--s)*var(--f));
+}
+
+@media(max-width: 450px){
+    .gallery {
+        --s: 105px; /* control the size */
+        --g: 7.5px;  /* control the gap */
+        --f: 1;   /* control the scale factor */
+    }
+
+}
+
+/* Lightbox Styles for 4a*/
+
+.lightbox-content {
+	position: relative;
+  }
+
+.lightbox {
+	position: fixed;
+	background: rgba(39, 38, 38, 0.7);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+  }
+  .lightbox img {
+	max-width: 70%;
+	max-height: 70%;
+	border: 3px solid whitesmoke;
+  }
+
+  .close-photo {
+	position: absolute;
+	align-items: center;
+	top: -50px;
+	right: 160px;
+	font-size: 100px;
+	color: white;
+	cursor: pointer;
+	z-index: 10; 
+	background-color: transparent;
+	border: none;
+  }
+
+  @media(max-width: 700px){
+	.close-photo {
+		top: -50px;
+		right: 40px;
+		font-size: 50px;
+	}
+}
+
+@media(max-width: 400px){
+	.close-photo {
+		top: -50px;
+		right: 20px;
+		font-size: 50px;
+	}
+}
+  
+.close-photo:hover {
+   color: red; 
+}
+
+/*4b Memory spel firstgame.html */
+.hidden-card {
+	width: 300px;
+	height: 200px;
+	outline: 10px solid black;
+	background-size: cover;
+	background-position: center;
+	background-color: white;
+	cursor: pointer;
+	margin: 10px;
+	filter: brightness(0) invert(1);
+}
+.visible {
+	filter: none;
+}
+
+/* 5b Stan-sex-påse Spel spel secondgame.html */
+.options{  
+	width: 300px;
+	height: 200px;
+	outline: 3px solid black;
+	background-size: cover;
+	background-position: center;
+	background-color: white;
+	cursor: pointer;
+}
+.choice-selected {
+	filter: brightness(2) invert(3);
+}
+.disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.links-container {
+	padding-bottom: 20px;
+}
+
+/*Copyright */
 
 #copyright{
 	background-color: black;
@@ -67,15 +373,6 @@ body{
 	padding-bottom: 10px;
 }
 
-
-
-
-@media only screen and (max-width: 800px) {
- 
- 	
-
-
-  }
 
 
 

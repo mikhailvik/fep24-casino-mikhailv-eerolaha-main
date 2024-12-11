@@ -10,60 +10,79 @@
 	<meta charset="utf-8">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container">
-	<img src="images/slot.png" alt="Logo" class="navbar-logo">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+			<img src="images/slot.png" alt="Logo" class="navbar-logo">
 	
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Hem</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="firstgame.html">Memory Spel</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="secondgame.html">Stan-sex-påse</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Bildgalleri</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="color.html">Byt färgtema</a></li>		
-			</ul>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				<ul class="navbar-nav" id="navbar-links">
+					<!--<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Hem</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="firstgame.html">Memory Spel</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="secondgame.html">Stan-sex-påse Spel</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Bildgalleri</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="color.html">Byt färgtema</a></li>	-->	
+				</ul>
+			</div>
+			<audio id="audio-player">
+				<source src="#" type="audio/mpeg">
+				 Your browser does not support the audio element.
+			</audio>
+			<div class="audio-controls">
+			  <span class="sound-switcher" onclick="toggleSound()">SOUND ON/OFF &#9836; </span>	
+			</div>
 		</div>
-	</div>
-</nav>
-
-<section id="main-section">
-	<div class="container">
-	
-	 <h1>Casino</h1>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-	
-    </div>
-</section>
+		<script src="js/musik.js"></script>
+	</nav>
+ <!-- Storleken på bilderna och en annan färg, mycket mörkare, när man trycker på sitt val, alltså ett av foton. Man har också också ett sätt, genom disabled, att blocka en användare att välja ett av sten, sax påse, ifall spelaren inte har valt sin satsningsmängd  -->
+	<section class ="main-section-html">
+		<div class="container">
+			<h1>Rock-Paper-Scissors</h1>        
+			<p id ="choice"></p>    <!-- Tydliga anropningsnamn, taktiskt placerade så att viss text skall komma högre upp och viss text lägre ner -->
+			<p id="bet"></p>
+			<p id="newBet"></p>
+		   
+			<div class="links-container">  <!-- Man gör valen genom dessa bilder  -->
+				<img src = "images/rock.jpg" alt="Rock" class = "options" onclick="userChoice('Rock')">
+				<img src ="images/scissors.jpg" alt="Scissors" class = "options" onclick="userChoice('Scissors')">
+				<img src = "images/paper.jpg" alt="Paper" class = "options" onclick="userChoice('Paper')">
+			</div>
+			<input type="number" id="betAmount" placeholder="Please enter your bet: ">  
+			<button onclick = "placeBet(document.getElementById('betAmount').value)">Place Bet</button>  <!-- Space för att sätta in satsningen och sedan verifiera att man gjort det genom att trycka på "Place bet"  -->
+			<p id="result"></p>
+			<p id="balance"></p>
+		</div>
+	</section>
 </body>
 
 <footer class="py-5 bg-dark text-center text-white">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-				<h5 class="text-uppercase">Om oss</h5>
-				<p>Välkommen till oss!</p>
+				<h5 class="text-uppercase">About us</h5>
+				<p>Our Casino offers high-class and versatile entertainment</p>
 			</div>
 			<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
 				<h5 class="text-uppercase">Social</h5>
-				<p style="font-size:20px"><i class="fa fa-facebook-f" style="font-size:24px"></i><a href=""><br>Facebook</a></p>
+				<p style="font-size:20px"><i class="fa fa-facebook-f" style="font-size:24px"></i></p>
 			</div>	
 			<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
 				<h5 class="text-uppercase">Casino</h5>
-				<p>Här kan man hitta bara de mest intressanta spelen!</p>
-				<p style="font-size:20px"><a href="">Kontaktuppgifter</a></p>
+				<p class="play-count"></p>
+				<p style="font-size:20px"></p>
 			</div>					
 		</div>
 	</div>
 </footer>
-
 
 <div id="copyright">
 	<div class="container">
 		<p>Copyright &copy; Casino 2024<p>
 	</div>
 </div>
-
+<script src="js/5b.js"></script>
+<script src="js/3b.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>

@@ -10,73 +10,80 @@
 	<meta charset="utf-8">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container">
-	<img src="images/slot.png" alt="Logo" class="navbar-logo">
-	
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Hem</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="firstgame.html">Memory Spel</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="secondgame.html">Stan-sex-påse</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Bildgalleri</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="color.html">Byt färgtema</a></li>		
-			</ul>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+			<img src="images/slot.png" alt="Logo" class="navbar-logo">
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				<ul class="navbar-nav" id="navbar-links">
+					<!--<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Hem</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="firstgame.html">Memory Spel</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="secondgame.html">Stan-sex-påse Spel</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Bildgalleri</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="color.html">Byt färgtema</a></li>	-->	
+				</ul>
+			</div>
+			<audio id="audio-player">
+				<source src="#" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+			<div class="audio-controls">
+			<span class="sound-switcher" onclick="toggleSound()">SOUND ON/OFF &#9836; </span>	
+			</div>
 		</div>
-	</div>
-</nav>
+		<script src="js/musik.js"></script>
+	</nav>
 
-<section id="main-section-html">
-	<div class="container">
-	
-	 <h1>Casino</h1>
+	<section class="main-section-html">
+		<div class="container">
+			<h1>Casino</h1>
+			<label for="username">Enter your name:</label><br />
+			<input type="text" id="username" placeholder="Alex" name="username" required="required"><br />
+			<br />
+			<label for="userlastname">Enter your last name:</label><br />
+			<input type="text" id="userlastname" placeholder="Nordman" name="userlastname" required="required"><br />
+			<br>
+			<button onclick="createUser(), addButtonWithLink()">Save user info</button><br />
 
+			<h3 id="answer"></h3><br />
 
-	 <label for="username">Enter your name:</label><br />
-	 <input type="text" id="username" placeholder="Alex" name="username" required="required"><br />
- 
-	 <label for="userlastname">Enter your last name:</label><br />
-	 <input type="text" id="userlastname" placeholder="Nordman" name="userlastname" required="required"><br />
-	 <br>
-	 <button onclick="createUser(), addButtonWithLink()">Save user info</button><br />
-
-	 <h3 id="answer"></h3><br />
-
-	 <div id="button-container"></div>
-
-
-    </div>
-</section>
+			<div id="button-container"></div>
+			<div id="clock"></div>
+			<div id="casino-status"></div>
+			<div id="countdown-clock"></div>
+		</div>
+	</section>
 </body>
 
 <footer class="py-5 bg-dark text-center text-white">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-				<h5 class="text-uppercase">Om oss</h5>
-				<p>Välkommen till oss!</p>
+				<h5 class="text-uppercase">About us</h5>
+				<p>Our Casino offers high-class and versatile entertainment</p>
 			</div>
 			<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
 				<h5 class="text-uppercase">Social</h5>
-				<p style="font-size:20px"><i class="fa fa-facebook-f" style="font-size:24px"></i><a href=""><br>Facebook</a></p>
+				<p style="font-size:20px"><i class="fa fa-facebook-f" style="font-size:24px"></i></p>
 			</div>	
 			<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
 				<h5 class="text-uppercase">Casino</h5>
-				<p>Här kan man hitta bara de mest intressanta spelen!</p>
-				<p style="font-size:20px"><a href="">Kontaktuppgifter</a></p>
+				<p class="play-count"></p>
+				<p style="font-size:20px"></p>
 			</div>					
 		</div>
 	</div>
 </footer>
-
 
 <div id="copyright">
 	<div class="container">
 		<p>Copyright &copy; Casino 2024<p>
 	</div>
 </div>
-
+<script src="js/3b.js"></script>
+<script src="js/2a.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
